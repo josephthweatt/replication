@@ -145,7 +145,12 @@
                             *
                         </Import-Package>
                         <Export-Package>
-                            org.codice.ditto.replication.api.impl.data
+                            org.codice.ditto.replication.api.impl.data,
+                            org.codice.ddf.admin.configurator.*,
+                            com.google.api.client.*,
+                            com.google.common.*,
+                            com.google.errorprone.annotations.*,
+                            com.google.thirdparty.publicsuffix,
                         </Export-Package>
                         <Embed-Dependency>
                             commons-collections4,
@@ -154,6 +159,7 @@
                             platform-util,
                             platform-util-unavailableurls,
                             commons-lang3,
+                            security-core-api,
                             security-core-impl,
                             commons
                         </Embed-Dependency>

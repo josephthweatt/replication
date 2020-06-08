@@ -169,6 +169,7 @@
               commons-collections4,
               ogc-tools-gml-jts,
               ddf-security-common,
+              security-core-api,
               platform-util,
               jaxb-core,
               commons-lang3,
