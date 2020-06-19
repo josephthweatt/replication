@@ -61,6 +61,7 @@
           <instructions>
             <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
             <Export-Package>com.connexta.replication.data</Export-Package>
+            <Embed-Dependency>commons-lang3</Embed-Dependency>
           </instructions>
         </configuration>
       </plugin>

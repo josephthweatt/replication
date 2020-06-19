@@ -169,6 +169,7 @@
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Import-Package>
                             !org.jvnet.staxex,
+                            !org.apache.http.*,
                             ddf.security.permission,
                             ddf.security.encryption;version="[1.0.0, 3.0.0]",
                             *
@@ -180,7 +181,7 @@
                             mime-tika-resolver,
                             platform-util,
                             jaxb-core,
-                            commons-lang3
+                            httpclient,
                         </Embed-Dependency>
                         <Embed-Transitive>true</Embed-Transitive>
                     </instructions>

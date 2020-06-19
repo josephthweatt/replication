@@ -93,6 +93,11 @@
             <version>${commons.lang3.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.karaf.jaas</groupId>
+            <artifactId>org.apache.karaf.jaas.boot</artifactId>
+            <version>4.2.9</version>
+        </dependency>
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
@@ -128,6 +133,21 @@
             <artifactId>commons</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.checkerframework</groupId>
+            <artifactId>checker-qual</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.10.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>1.5.3</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -139,23 +159,47 @@
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Import-Package>
+                            !org.apache.commons.beanutils,
+                            !org.apache.commons.configuration2.interpol,
+                            !org.bouncycastle.asn1.*,
+                            !org.bouncycastle.crypto.*,
+                            !org.codice.ddf.configuration,
+                            !org.codice.ddf.platform.services.common,
+                            !org.codice.ddf.security.handler.*,
+                            !org.codice.ddf.system.*,
+                            !org.codice.ddf,
                             !org.jvnet.staxex,
-                            ddf.security.permission,
-                            ddf.security.encryption;version="[1.0.0, 3.0.0]",
+                            !org.pac4j.oidc.profile,
+                            !com.google.api.client.*,
+                            !com.google.errorprone.annotations.*,
                             *
                         </Import-Package>
                         <Export-Package>
-                            org.codice.ditto.replication.api.impl.data
+                            ddf.catalog*,
+                            ddf.measure*;scope=compile,
+                            ddf.security*;scope=compile,
+                            org.codice.ditto.replication.api.impl.data;scope=compile
                         </Export-Package>
                         <Embed-Dependency>
                             commons-collections4,
                             catalog-core-api-impl,
+                            catalog-core-api,
                             ddf-security-common,
                             platform-util,
                             platform-util-unavailableurls,
                             commons-lang3,
                             security-core-impl,
-                            commons
+                            security-core-api
+                            ddf-security-common
+                            commons,
+                            guava,
+                            checker-qual,
+                            joda-time,
+                            shiro-core,
+                            org.apache.karaf.jaas.boot,
+                            catalog-core-api,
+                            catalog-core-api-impl,
+                            filter-proxy,
                         </Embed-Dependency>
                         <Embed-Transitive>true</Embed-Transitive>
                     </instructions>

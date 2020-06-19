@@ -57,6 +57,11 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
+            <groupId>replication</groupId>
+            <artifactId>replication-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${commons.lang3.version}</version>
@@ -76,8 +81,15 @@
                 <configuration>
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                        <Import-Package>
+                            !org.codice.ddf.configuration,
+                            !com.google.errorprone.annotations,
+                        </Import-Package>
                         <Embed-Dependency>
-                            admin-query-common
+                            admin-query-common,
+                            commons-lang3,
+                            replication-api-impl,
+                            replication-api,
                         </Embed-Dependency>
                     </instructions>
                 </configuration>
